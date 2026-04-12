@@ -1,0 +1,7 @@
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"] # Error, Flake8, Isort
+ignore = ["D100"]       # Ignore missing docstring in public module
