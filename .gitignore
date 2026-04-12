@@ -1,0 +1,12 @@
+# AI Models & Databases
+backend/models/
+aegis_data/
+
+# Temp Files
+temp_*
+stream_*
+
+# Python & Node Caches
+__pycache__/
+node_modules/
+.next/

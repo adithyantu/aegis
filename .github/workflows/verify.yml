@@ -1,0 +1,27 @@
+name: AEGIS Quality Gate
+on: [push, pull_request]
+
+jobs:
+  lint-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        
+      - name: Frontend Lint
+        run: |
+          cd aegis-frontend
+          bun install
+          bun x eslint .
+          
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          
+      - name: Backend Lint
+        run: |
+          pip install ruff
+          ruff check .
